@@ -4,7 +4,7 @@ const stylesFolder = path.join(__dirname, 'styles');
 const projectDist = path.join(__dirname, 'project-dist');
 const bundleCSS = path.join(projectDist, 'bundle.css');
 
-fs.writeFile("./05-merge-styles/project-dist/bundle.css", "", function(err){
+fs.writeFile("05-merge-styles/project-dist/bundle.css", "", function(err){
   if (err) {
       console.log(err);
   }
