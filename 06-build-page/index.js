@@ -36,7 +36,7 @@ async function addStyleCSS() {
 }
 
 async function copyFilesInNewDir() {
-  await fsPromises.rmdir(path.join(newPath, 'assets'), {recursive: true});
+ /*  await fsPromises.rmdir(path.join(newPath, 'assets'), {recursive: true}); */
   await fsPromises.mkdir(path.join(newPath, 'assets'), {recursive: true});
   fs.readdir(assetsOld, (error, files) => {
     if (error) throw error;
