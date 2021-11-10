@@ -23,7 +23,7 @@ async function addIndexHTML() {
 
 async function addStyleCSS() {
   const styles = await fsPromises.readdir(stylesOld, {withFileTypes: true});
-  for (let i = 0; i < styles; i++) {
+  for (let i = 0; i < styles.length; i++) {
     if (styles[i].isFile() && path.extname(styles[i].name).slice(1) === 'css') {
       fs.readFile(path.join(stylesOld, styles[i].name), (error, data) => {
         if (error) throw error;
@@ -36,7 +36,7 @@ async function addStyleCSS() {
 }
 
 async function copyFilesInNewDir() {
- /*  await fsPromises.rmdir(path.join(newPath, 'assets'), {recursive: true}); */
+  await fsPromises.rmdir(path.join(newPath, 'assets'), {recursive: true});
   await fsPromises.mkdir(path.join(newPath, 'assets'), {recursive: true});
   fs.readdir(assetsOld, (error, files) => {
     if (error) throw error;
