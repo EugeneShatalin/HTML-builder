@@ -48,10 +48,10 @@ async function copyFilesInNewDir() {
         if (error) throw error;
       });
       fs.readdir(newDir, (error, nestedFiles) => {
-        for (let i = 0; i < nestedFiles.length; i++) {
+        for (const file of nestedFiles) {
           if (error) throw error;
-          const input = fs.createReadStream(path.join(newDir, nestedFiles[i]));
-          const output = fs.createWriteStream(path.join(newAssetsPath, files[i], nestedFiles[i]), {autoClose: true});
+          const input = fs.createReadStream(path.join(newDir, file));
+          const output = fs.createWriteStream(path.join(newAssetsPath, files[i], file), {autoClose: true});
           input.pipe(output);
         }
       });
