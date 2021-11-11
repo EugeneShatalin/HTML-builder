@@ -7,11 +7,9 @@ let dirHave = false;
 
 function funDirHave() {
   fs.stat(filesCopy, (error) => {
-    console.log(dirHave);
     if (!error) {
       dirHave = true;
       mkCopyDir();
-      console.log(dirHave);
     } else {
       dirHave = false;
       mkCopyDir();
@@ -20,7 +18,6 @@ function funDirHave() {
 }
 
 async function mkCopyDir() {
-  console.log(dirHave);
   if (dirHave) {
     await fsProm.rm(filesCopy, { recursive: true });
   }
